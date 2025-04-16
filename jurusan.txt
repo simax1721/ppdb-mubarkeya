@@ -1,0 +1,15 @@
+Teknik Jaringan Komputer dan Telekomunikasi
+Pengembangan Perangkat Lunak dan Gim
+Akuntansi dan Keuangan Lembaga
+Desain Pemodelan dan Informasi Bangunan
+Teknik Otomotif
+Kuliner
+Busana
+
+TKJT = 50
+PPLG =25
+TEKNIK OTOMOTIF = 50
+AKUNTANSI = 25
+BUSANA = 50
+KULINER = 25
+DPIB = 25

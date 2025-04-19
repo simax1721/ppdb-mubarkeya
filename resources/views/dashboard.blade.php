@@ -1,5 +1,9 @@
 @extends('layouts.beranda')
 
+@push('css')
+    
+@endpush
+
 @section('judul-halaman')
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
@@ -20,9 +24,7 @@
 @section('main-content')
     <section class="inner-page">
         <div class="container">
-        <p>
-            Example inner page template
-        </p>
+
         </div>
     </section>
 @endsection

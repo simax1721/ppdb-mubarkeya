@@ -19,6 +19,7 @@
 @endsection
 
 @section('main-content')
+
     <section class="inner-page">
         <div class="container">
             <div class="card">
@@ -48,7 +49,7 @@
                         </div> --}}
                       </div>
                       <img class="mt-3" id="imagePreview" style="width: 100%; border: 0.5px solid #777">
-                      <button type="button" id="save" class="btn btn-success">Simpan Perubahan</button>
+                      <a href="#" id="save" class="btn btn-success mt-2">Simpan Perubahan</a>
                     </div>
                     <div class="col-10">
                       <div class="row">

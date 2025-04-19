@@ -30,6 +30,71 @@
   <!-- Template Main CSS File -->
   <link href="{{ url('/') }}/mamba/assets/css/style.css" rel="stylesheet">
 
+  <style>
+    .timeline-horizontal {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .timeline-horizontal::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #dee2e6; /* garis tengah */
+      z-index: 0;
+    }
+
+    .timeline-step {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(52, 58, 64, 0.2);
+    }
+
+    .circle.solid {
+      background-color: #28a745;  /* abu-abu solid */
+      color: #fff;
+    }
+
+    .circle.outline {
+      border: 3px solid #28a745;
+      background-color: white;
+      color: #343a40;
+    }
+
+    .timeline-label {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #343a40;
+    }
+   </style>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
   @stack('css')
@@ -118,6 +183,41 @@
   <main id="main">
 
   @yield('judul-halaman')
+
+  @auth
+  <section class="inner-page">
+    <div class="container">
+  
+  
+        <div class="timeline-horizontal">
+            <div class="timeline-step">
+              <a href="{{ url('profil/') }}" id="timeline-1" class="circle outline {{-- solid --}}">1</a>
+              <div class="timeline-label">Biodata Siswa</div>
+            </div>
+            <div class="timeline-step">
+              <a href="{{ url('formulir') }}" id="timeline-2" class="circle outline">2</a>
+              <div class="timeline-label">Formulir Pendaftaran</div>
+            </div>
+            <div class="timeline-step">
+              <a href="#ujian" id="timeline-3" class="circle outline">3</a>
+              <div class="timeline-label">Ujian</div>
+            </div>
+            <div class="timeline-step">
+              <a href="#pengumuman" id="timeline-4" class="circle outline">4</a>
+              <div class="timeline-label">Pengumuman</div>
+            </div>
+            <div class="timeline-step">
+              <a href="#daftarulang" id="timeline-5" class="circle outline">5</a>
+              <div class="timeline-label">Daftar Ulang</div>
+            </div>
+          </div>
+  
+  
+  
+  
+    </div>
+  </section>
+  @endauth
 
   @yield('main-content')
     
@@ -216,6 +316,37 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   @stack('scripts')
+
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        url: `{{ url('dashboard-timeline') }}`,
+        success: function (response) {
+          if (response.timeline1 == 1) {
+            $('#timeline-1').removeClass('outline');
+            $('#timeline-1').addClass('solid');
+          }
+          if (response.timeline2 == 1) {
+            $('#timeline-2').removeClass('outline');
+            $('#timeline-2').addClass('solid');
+          }
+          if (response.timeline3 == 1) {
+            $('#timeline-3').removeClass('outline');
+            $('#timeline-3').addClass('solid');
+          }
+          if (response.timeline4 == 1) {
+            $('#timeline-4').removeClass('outline');
+            $('#timeline-4').addClass('solid');
+          }
+          if (response.timeline5 == 1) {
+            $('#timeline-5').removeClass('outline');
+            $('#timeline-5').addClass('solid');
+          }
+        }
+      });
+    });
+  </script>
 
 </body>
 

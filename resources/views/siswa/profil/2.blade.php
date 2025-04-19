@@ -206,7 +206,7 @@
               });
 
               window.setTimeout(function() {
-                window.location.href = ``;
+                window.location.href = `{{ url('/formulir') }}`;
               }, 3000);
             },
             error: function (error) { 

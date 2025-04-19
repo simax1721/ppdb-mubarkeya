@@ -46,16 +46,16 @@
         <div class="sidebar-heading">DASHBOARD</div>
 
         <li class="nav-item ">
-            <a class="nav-link pb-2" href="{{ url('/home') }}">
+            <a class="nav-link pb-2" href="{{ url('/admin/dashboard') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>DASHBOARD</span></a>
         </li>
         
-        <li class="nav-item ">
+        {{-- <li class="nav-item ">
             <a class="nav-link pb-2" href="{{ url('/profile') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>PROFILE</span></a>
-        </li>
+        </li> --}}
         
         <hr class="sidebar-divider mt-3">
         <div class="sidebar-heading">MASTER DATA</div>
@@ -63,6 +63,11 @@
             <a class="nav-link pb-2" href="{{ url('/admin/jurusan') }}">
                 <i class="fas fa-fw fa-database"></i>
                 <span>Jurusan</span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link pb-2" href="{{ url('/admin/timeline') }}">
+                <i class="fas fa-fw fa-database"></i>
+                <span>Timeline</span></a>
         </li>
         <hr class="sidebar-divider mt-3">
         <div class="sidebar-heading">MENU</div>
@@ -86,7 +91,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link pb-2" href="{{ url('/admin/jurusan') }}">
+            <a class="nav-link pb-2" href="{{ url('/admin/daftar-ulang') }}">
                 <i class="fas fa-fw fa-user-check"></i>
                 <span>Daftar Ulang</span></a>
         </li>

@@ -12,4 +12,8 @@ class Lulus_user extends Model
     protected $hidden = [
         'created_at', 'updated_at'
     ];
+
+    function user() {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }

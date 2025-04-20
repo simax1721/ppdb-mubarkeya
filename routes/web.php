@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DaftarulangController as AdminDaftarulangControll
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\JurusanController as AdminJurusanController;
 use App\Http\Controllers\Admin\NilaiController as AdminNilaiController;
+use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
 use App\Http\Controllers\Admin\SeleksiController as AdminSeleksiController;
 use App\Http\Controllers\Admin\TimelineController as AdminTimelineController;
 use App\Http\Controllers\Auth\AdminController as AuthAdminController;
@@ -32,6 +33,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::auto('/nilai', AdminNilaiController::class);
     Route::auto('/seleksi', AdminSeleksiController::class);
     Route::auto('/daftar-ulang', AdminDaftarulangController::class);
+    Route::auto('/pengumuman', AdminPengumumanController::class);
 });
 
 // Route::get('/dashboard', function () {

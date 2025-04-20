@@ -16,4 +16,8 @@ class Lulus_user extends Model
     function user() {
         return $this->belongsTo(User::class, 'users_id', 'id');
     }
+
+    function jurusan() {
+        return $this->belongsTo(Jurusan::class, 'jurusans_id', 'id');
+    }
 }

@@ -8,7 +8,7 @@
 
 @section('main-content')
 <!-- Page Heading -->
-<h1 class="h3 mb-0 text-gray-800 mb-4">Admin</h1>
+<h1 class="h3 mb-0 text-gray-800 mb-4">Jurusan</h1>
 
 <div class="row">
 

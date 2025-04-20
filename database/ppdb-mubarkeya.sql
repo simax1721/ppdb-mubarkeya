@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2025 at 02:06 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 20, 2025 at 11:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -71,11 +71,13 @@ CREATE TABLE `biodata_users` (
 --
 
 INSERT INTO `biodata_users` (`id`, `users_id`, `nik`, `agama`, `no_hp`, `alamat`, `asal_sekolah`, `nama_bapak`, `nomor_bapak`, `nama_ibu`, `nomor_ibu`, `created_at`, `updated_at`) VALUES
-(1, 1, '3329091003780070', 'ISLAM', '44444', 'ssssss', 'smpn 1', 'ssss', '085225', 'gggg', '085330', '2025-04-01 05:38:45', '2025-04-01 05:38:45'),
+(1, 1, '3329091003780070', 'ISLAM', '683835732486', 'ssssss', 'smpn 1', 'ssss', '085225', 'gggg', '085330', '2025-04-01 05:38:45', '2025-04-01 05:38:45'),
 (2, 2, '111111', 'ISLAM', '11111111', 'aaaaa', 'sd12', 'aaaa', '123', 'cccc', '321', '2025-04-02 03:16:04', '2025-04-02 03:16:04'),
-(3, 3, '24042513', 'ISLAM', '082365205018', 'desa lueng ie', 'smpn 18 banda aceh', 'zaiwan', '082343', 'yusmiati', '082376', '2025-04-04 05:56:54', '2025-04-04 05:56:54'),
+(3, 3, '24042513', 'ISLAM', '682365205018', 'desa lueng ie', 'smpn 18 banda aceh', 'zaiwan', '082343', 'yusmiati', '082376', '2025-04-04 05:56:54', '2025-04-04 05:56:54'),
 (4, 4, '1106111710001', 'ISLAM', '44444', 'vdrbvs', 'smpn 1', 'ssss', '1321', 'gggg', '13131', '2025-04-06 01:41:26', '2025-04-06 01:41:26'),
-(5, 5, '3329091003780070', 'ISLAM', '44444', 'mliancabuw', 'smpn 1', 'ssss', '0833', 'gggg', '0844', '2025-04-11 06:31:19', '2025-04-11 06:31:19');
+(5, 5, '3329091003780070', 'ISLAM', '44444', 'mliancabuw', 'smpn 1', 'ssss', '0833', 'gggg', '0844', '2025-04-11 06:31:19', '2025-04-11 06:31:19'),
+(6, 6, '3329091003780070', 'ISLAM', '44444', 'dawdfea', 'smpn 1', 'ssss', '333', 'gggg', '4444', '2025-04-19 01:59:37', '2025-04-19 01:59:37'),
+(7, 7, '3329091003780070', 'ISLAM', '44444', 'ddd', 'smpn 1', 'ssss', '333', 'gggg', '444', '2025-04-19 02:27:06', '2025-04-19 02:27:06');
 
 -- --------------------------------------------------------
 
@@ -151,10 +153,12 @@ CREATE TABLE `formulir_users` (
 
 INSERT INTO `formulir_users` (`id`, `nomor`, `users_id`, `biodata_users_id`, `jurusan1`, `status_jurusan1`, `jurusan2`, `status_jurusan2`, `nilai`, `created_at`, `updated_at`) VALUES
 ('PPDB20250002', 2, 1, 1, 1, 'L', 2, NULL, 500, '2025-04-02 12:53:00', '2025-04-11 06:40:17'),
-('PPDB20250003', 3, 2, 2, 6, 'T', 7, 'L', 470, '2025-04-04 02:12:45', '2025-04-11 06:45:07'),
+('PPDB20250003', 3, 2, 2, 6, 'A', 7, 'A', 470, '2025-04-04 02:12:45', '2025-04-16 13:47:52'),
 ('PPDB20250004', 4, 3, 3, 2, 'A', 5, 'A', 371, '2025-04-04 05:57:27', '2025-04-11 06:45:38'),
 ('PPDB20250005', 5, 4, 4, 2, 'L', 1, NULL, 480, '2025-04-06 01:41:57', '2025-04-11 06:42:38'),
-('PPDB20250006', 6, 5, 5, 2, 'A', 3, 'A', 300, '2025-04-11 06:31:59', '2025-04-11 06:45:57');
+('PPDB20250006', 6, 5, 5, 2, 'A', 3, 'A', 300, '2025-04-11 06:31:59', '2025-04-11 06:45:57'),
+('PPDB20250007', 7, 6, 6, 1, 'A', 2, 'A', 3, '2025-04-19 02:09:13', '2025-04-19 02:25:11'),
+('PPDB20250008', 8, 7, 7, 4, 'L', 5, NULL, 400, '2025-04-19 02:27:52', '2025-04-19 06:52:40');
 
 -- --------------------------------------------------------
 
@@ -239,11 +243,13 @@ CREATE TABLE `lulus_users` (
 --
 
 INSERT INTO `lulus_users` (`id`, `users_id`, `biodata_users_id`, `jurusans_id`, `is_daftar_ulang`, `created_at`, `updated_at`) VALUES
-('PPDB20250002', 1, 1, 1, NULL, '2025-04-11 06:40:17', '2025-04-11 06:40:17'),
-('PPDB20250003', 2, 2, 7, NULL, '2025-04-11 06:45:07', '2025-04-11 06:45:07'),
-('PPDB20250004', 3, 3, 7, NULL, '2025-04-11 06:45:38', '2025-04-11 06:45:38'),
-('PPDB20250005', 4, 4, 2, NULL, '2025-04-11 06:42:38', '2025-04-11 06:42:38'),
-('PPDB20250006', 5, 5, 7, NULL, '2025-04-11 06:45:57', '2025-04-11 06:45:57');
+('PPDB20250002', 1, 1, 1, NULL, '2025-04-11 06:40:17', '2025-04-16 13:54:51'),
+('PPDB20250003', 2, 2, 7, NULL, '2025-04-16 13:47:52', '2025-04-16 13:55:00'),
+('PPDB20250004', 3, 3, 7, NULL, '2025-04-11 06:45:38', '2025-04-16 13:55:02'),
+('PPDB20250005', 4, 4, 2, 'Y', '2025-04-11 06:42:38', '2025-04-19 02:24:49'),
+('PPDB20250006', 5, 5, 7, NULL, '2025-04-11 06:45:57', '2025-04-16 13:55:03'),
+('PPDB20250007', 6, 6, 3, NULL, '2025-04-19 02:25:11', '2025-04-19 02:25:11'),
+('PPDB20250008', 7, 7, 4, NULL, '2025-04-19 06:52:40', '2025-04-19 06:52:40');
 
 -- --------------------------------------------------------
 
@@ -269,7 +275,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (25, '2025_03_24_185357_create_jurusans_table', 1),
 (26, '2025_03_24_185644_create_biodata_users_table', 1),
 (27, '2025_03_24_190244_create_formulir_users_table', 1),
-(28, '2025_03_24_190620_create_lulus_users_table', 1);
+(28, '2025_03_24_190620_create_lulus_users_table', 1),
+(29, '2025_04_19_093323_create_timelines_table', 2);
 
 -- --------------------------------------------------------
 
@@ -303,7 +310,34 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('cj4eYobAAy14lQ4in5Evy6NBgv9QyGEgD4jN8wNg', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiOFFYUlJVVnpkZm5UbVJNdnd2alFWYVJZbWJjSzRkd2NVNk5VMnc0NyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTI6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2FkbWluL3NlbGVrc2kiO31zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1744379203);
+('0BIt5AC3oTwsT2y40LQ6DXgZzem5TyDHh5pzCYAS', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiblZpWlFUSDE3ZE9BbjlBMjJhQkxJbVhSeHoyYmtFQ2hIYlNwazVMQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTU6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2FkbWluL3Blbmd1bXVtYW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1745183024),
+('yhOr82IdPY4EDWnvjsYnGv6khv2vFFWFCGlHZdKA', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVGgyUnRSZE1iQ1k5Szl3RTZOSXhHeXp4dTRWdTlpcDRNNXFWalhnTiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo0NzoiaHR0cDovL2xvY2FsaG9zdC9wcGRiLW11YmFya2V5YS9wdWJsaWMvZm9ybXVsaXIiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NDoiaHR0cDovL2xvY2FsaG9zdC9wcGRiLW11YmFya2V5YS9wdWJsaWMvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1745180012);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timelines`
+--
+
+CREATE TABLE `timelines` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `tgl_mulai` date NOT NULL,
+  `tgl_selesai` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `timelines`
+--
+
+INSERT INTO `timelines` (`id`, `name`, `tgl_mulai`, `tgl_selesai`, `created_at`, `updated_at`) VALUES
+(1, 'Biodata Siswa', '2025-04-01', '2025-04-04', NULL, '2025-04-19 06:51:26'),
+(2, 'Formulir Pendaftaran', '2025-04-03', '2025-04-04', NULL, NULL),
+(3, 'Ujian', '2025-04-05', '2025-04-06', NULL, NULL),
+(4, 'Pengumuman', '2025-04-07', '2025-04-08', NULL, NULL),
+(5, 'Daftar Ulang', '2025-04-09', '2025-04-10', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -332,11 +366,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `nisn`, `jk`, `tmp_lahir`, `tgl_lahir`, `photo`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'M. Fadhlan', 'mfadhlan1721@gmail.com', NULL, '$2y$12$/qOqkU2HhraxE/KzfITzO.uFxz/SvakbpsyfkTAu8aPaDzPDIrCBW', '0014', 'LAKI - LAKI', 'Aceh Besar', '2010-12-17', 'wDwzMUgZb8wgjE23LxKrDJXG6RTzMd3p9ylxcZWAz25M7RklG5KhRUCS3YDi2ye4wQsUMplskozmPt2OFgitYp8cbmO65CsTvsZ1.png', NULL, '2025-04-01 05:31:41', '2025-04-01 05:37:57'),
+(1, 'M. Fadhlan', 'mfadhlan1721@gmail.com', NULL, '$2y$12$/qOqkU2HhraxE/KzfITzO.uFxz/SvakbpsyfkTAu8aPaDzPDIrCBW', '0014', 'LAKI - LAKI', 'Aceh Besar', '2010-12-17', 'IkqOAd3NOH8SIB86wtNdR9AqfjK3TFY9DNwnTg8G97iD1r0Z6GalZMCv1rcBBDEzXYnezTqS6y3k2bvpSlU2ls6mRGVZV7DksIzH.png', NULL, '2025-04-01 05:31:41', '2025-04-16 15:21:24'),
 (2, 'adadaa', 'aaaa12@gmail.com', NULL, '$2y$12$prxct8A2O8eUevXKPlEo2OjiNKoSQProEB8hs/pgDyhUizcb7uNRm', '12122334', 'LAKI - LAKI', 'banda', '2002-12-16', 'vcZZmePOMoK5hdThDJ0w7Ij8TKwGJQa2MfirxWqg5HKODr5JQLzSGSI8ESqyXvZR5lgnkXsEAnGxNTBR970iWqmSZmIAEpgznm3k.jpeg', NULL, '2025-04-02 03:13:05', '2025-04-02 03:15:14'),
 (3, 'muslem', '200705039@student.ar-raniry.ac.id', NULL, '$2y$12$yIHSHoy8p1vUfEormTHAjudNT300rOWvg/41XRz7wv59Z5hych5Mq', '0970969596', 'LAKI - LAKI', 'Banda Aceh', '2002-05-14', 'tLjf33tqtgawAqPfgUN4yKGJiPBbBS1ZlgwBRrLvxpt9EOf5rp2nGYqXVGCari4eCUPyvcYsAYqqXaq1RmZmPmdDVuscowH65rzH.jpg', NULL, '2025-04-04 05:51:41', '2025-04-04 05:52:31'),
 (4, 'simax', 'fadhlanmuhammad1733@gmail.com', NULL, '$2y$12$dvkL67wz9zR9klbpevjis.wF.7dXkWTG9IFGoxbr0NWFeTqKulpiK', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-06', '1AwnotPcYwreucgmgcu110hqfdZzGvNPzIE1mjgYdr57LYSZYMGMAkjfngCzubiuSsObLwFotF2HUrrBY8kmNBE84xAhfk6KwhxG.png', NULL, '2025-04-06 01:40:08', '2025-04-06 01:40:58'),
-(5, 'max', '20005068@student.ar-raniry.ac.id', NULL, '$2y$12$soROHiwbjLWAwzeOx4iPV.9j1T.QXb9sh9GJE7T66p2vXxpxRwqcu', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-10', 'Ix0FODVTn3VAdaRTF7cH0uyQJ1jUVokXtEiYozhXzrk1LcCVCj8m6PRj90ppyY3qQuAVPVCivFjyOVz00wMrJa7tOSLgpxOIIrvs.png', NULL, '2025-04-11 06:30:03', '2025-04-11 06:30:45');
+(5, 'max', '200705068@student.ar-raniry.ac.id', NULL, '$2y$12$soROHiwbjLWAwzeOx4iPV.9j1T.QXb9sh9GJE7T66p2vXxpxRwqcu', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-10', 'Ix0FODVTn3VAdaRTF7cH0uyQJ1jUVokXtEiYozhXzrk1LcCVCj8m6PRj90ppyY3qQuAVPVCivFjyOVz00wMrJa7tOSLgpxOIIrvs.png', NULL, '2025-04-11 06:30:03', '2025-04-11 06:30:45'),
+(6, 'Nur Annas', 'paerayaulee@gmail.com', NULL, '$2y$12$08/NGQlfPwBO1MXIEeyI0etyXx7ULk2D/PHKQ0ELAbGltFJmYeDCW', '001477884', 'LAKI - LAKI', 'Aceh Besar', '2025-04-01', 'bx6oDp8SwPX2PLeFxtssevixUT2bqmnLmrr2CPHGjgEYCsNgsSdNu1vxuNJeSlCF54fMrdCpEGwaHMKG7g3aiY18yTpaH3PRNJWG.png', NULL, '2025-04-19 01:58:16', '2025-04-19 01:59:04'),
+(7, 'Lucky Donnya', 'lucky@gmail.com', NULL, '$2y$12$qD8ZTv2CldwR72tfeb5nPu2nCE.I4tBuenCKHyEq46HL4jQMx/4j.', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-05', 'XtZmHzcNNIpSyCRs2xr0dYPYmj22W5delWjm1ablIDDySZ4AfEzligCIXhXtcddutRPuNNkZ2FuqtPVjR5vYDdJUjkCvv6fhWYSB.png', NULL, '2025-04-19 02:26:21', '2025-04-19 02:26:41');
 
 --
 -- Indexes for dumped tables
@@ -426,6 +462,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `timelines`
+--
+ALTER TABLE `timelines`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -446,7 +488,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `biodata_users`
 --
 ALTER TABLE `biodata_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -470,13 +512,19 @@ ALTER TABLE `jurusans`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `timelines`
+--
+ALTER TABLE `timelines`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

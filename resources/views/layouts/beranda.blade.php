@@ -185,38 +185,37 @@
   @yield('judul-halaman')
 
   @auth
-  <section class="inner-page">
-    <div class="container">
-  
-  
-        <div class="timeline-horizontal">
-            <div class="timeline-step">
-              <a href="{{ url('profil/') }}" id="timeline-1" class="circle outline {{-- solid --}}">1</a>
-              <div class="timeline-label">Biodata Siswa</div>
+    @if ( url()->current() == url('/') || url()->current() == url('/informasi') || url()->current() == url('/alur'))
+    @else
+    <section class="inner-page">
+      <div class="container">
+    
+    
+          <div class="timeline-horizontal">
+              <div class="timeline-step">
+                <a href="{{ url('profil/') }}" id="timeline-1" class="circle outline {{-- solid --}}">1</a>
+                <div class="timeline-label">Biodata Siswa</div>
+              </div>
+              <div class="timeline-step">
+                <a href="{{ url('formulir') }}" id="timeline-2" class="circle outline">2</a>
+                <div class="timeline-label">Formulir Pendaftaran</div>
+              </div>
+              <div class="timeline-step">
+                <a href="#ujian" id="timeline-3" class="circle outline">3</a>
+                <div class="timeline-label">Ujian</div>
+              </div>
+              <div class="timeline-step">
+                <a href="{{  url('/pengumumanlulus') }}" id="timeline-4" class="circle outline">4</a>
+                <div class="timeline-label">Pengumuman</div>
+              </div>
+              <div class="timeline-step">
+                <a href="#daftarulang" id="timeline-5" class="circle outline">5</a>
+                <div class="timeline-label">Daftar Ulang</div>
+              </div>
             </div>
-            <div class="timeline-step">
-              <a href="{{ url('formulir') }}" id="timeline-2" class="circle outline">2</a>
-              <div class="timeline-label">Formulir Pendaftaran</div>
-            </div>
-            <div class="timeline-step">
-              <a href="#ujian" id="timeline-3" class="circle outline">3</a>
-              <div class="timeline-label">Ujian</div>
-            </div>
-            <div class="timeline-step">
-              <a href="#pengumuman" id="timeline-4" class="circle outline">4</a>
-              <div class="timeline-label">Pengumuman</div>
-            </div>
-            <div class="timeline-step">
-              <a href="#daftarulang" id="timeline-5" class="circle outline">5</a>
-              <div class="timeline-label">Daftar Ulang</div>
-            </div>
-          </div>
-  
-  
-  
-  
-    </div>
-  </section>
+      </div>
+    </section>
+    @endif
   @endauth
 
   @yield('main-content')
@@ -317,6 +316,7 @@
 
   @stack('scripts')
 
+  @auth
   <script>
     $(document).ready(function () {
       $.ajax({
@@ -347,6 +347,7 @@
       });
     });
   </script>
+  @endauth
 
 </body>
 

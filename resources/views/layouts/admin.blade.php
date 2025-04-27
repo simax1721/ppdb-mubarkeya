@@ -25,6 +25,17 @@
     <link href="mamba/assets/img/logombky2.png" rel="icon">
 
     @stack('css')
+
+    <style>
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body id="page-top">
 
@@ -88,6 +99,12 @@
             <a class="nav-link pb-2" href="{{ url('/admin/seleksi') }}">
                 <i class="fas fa-fw fa-user-graduate"></i>
                 <span>Seleksi Jurusan</span></a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link pb-2" href="{{ url('/admin/pengumuman') }}">
+                <i class="fas fa-fw fa-volume-up"></i>
+                <span>Pengumuman</span></a>
         </li>
         
         <li class="nav-item ">

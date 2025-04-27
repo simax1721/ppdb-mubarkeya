@@ -13,16 +13,22 @@ class PengumumanController extends Controller
 {
 
     function index() {
-        $siswa = Lulus_user::where('id','PPDB20250002')->get()->first();
+        // $siswa = Lulus_user::where('id','PPDB20250002')->get()->first();
 
+        return view('admin.pengumuman');
     
     }
 
 
     public function kirim() {
-        $siswa = Lulus_user::where('id','PPDB20250002')->get()->first();
-        Mail::to($siswa->user->email)->send(new PengumumanlulusEmail($siswa));
-        return response()->json(['message' => 'Email berhasil dikirim']);
+
+        $siswas = Lulus_user::get();
+        // $siswa = Lulus_user::where('id','PPDB20250002')->get()->first();
+        foreach ($siswas as $siswa) {
+            Mail::to($siswa->user->email)->send(new PengumumanlulusEmail($siswa));
+        }
+
+        return response()->json(['message' => 'Pengumuman berhasil dikirim!']);
     }
 
     // public function sendPengumumanLulus($siswa)

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2025 at 11:09 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 27, 2025 at 09:15 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,7 +77,8 @@ INSERT INTO `biodata_users` (`id`, `users_id`, `nik`, `agama`, `no_hp`, `alamat`
 (4, 4, '1106111710001', 'ISLAM', '44444', 'vdrbvs', 'smpn 1', 'ssss', '1321', 'gggg', '13131', '2025-04-06 01:41:26', '2025-04-06 01:41:26'),
 (5, 5, '3329091003780070', 'ISLAM', '44444', 'mliancabuw', 'smpn 1', 'ssss', '0833', 'gggg', '0844', '2025-04-11 06:31:19', '2025-04-11 06:31:19'),
 (6, 6, '3329091003780070', 'ISLAM', '44444', 'dawdfea', 'smpn 1', 'ssss', '333', 'gggg', '4444', '2025-04-19 01:59:37', '2025-04-19 01:59:37'),
-(7, 7, '3329091003780070', 'ISLAM', '44444', 'ddd', 'smpn 1', 'ssss', '333', 'gggg', '444', '2025-04-19 02:27:06', '2025-04-19 02:27:06');
+(7, 7, '3329091003780070', 'ISLAM', '44444', 'ddd', 'smpn 1', 'ssss', '333', 'gggg', '444', '2025-04-19 02:27:06', '2025-04-19 02:27:06'),
+(8, 8, '1106111710001', 'ISLAM', '44444', 'dddddd', 'smpn 1', 'dddddd', '444444', 'gggg', '4444444', '2025-04-24 06:24:21', '2025-04-24 06:24:21');
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,8 @@ INSERT INTO `formulir_users` (`id`, `nomor`, `users_id`, `biodata_users_id`, `ju
 ('PPDB20250005', 5, 4, 4, 2, 'L', 1, NULL, 480, '2025-04-06 01:41:57', '2025-04-11 06:42:38'),
 ('PPDB20250006', 6, 5, 5, 2, 'A', 3, 'A', 300, '2025-04-11 06:31:59', '2025-04-11 06:45:57'),
 ('PPDB20250007', 7, 6, 6, 1, 'A', 2, 'A', 3, '2025-04-19 02:09:13', '2025-04-19 02:25:11'),
-('PPDB20250008', 8, 7, 7, 4, 'L', 5, NULL, 400, '2025-04-19 02:27:52', '2025-04-19 06:52:40');
+('PPDB20250008', 8, 7, 7, 4, 'L', 5, NULL, 400, '2025-04-19 02:27:52', '2025-04-19 06:52:40'),
+('PPDB20250009', 9, 8, 8, 1, 'A', 4, 'A', 405, '2025-04-24 06:24:42', '2025-04-24 06:26:50');
 
 -- --------------------------------------------------------
 
@@ -249,7 +251,8 @@ INSERT INTO `lulus_users` (`id`, `users_id`, `biodata_users_id`, `jurusans_id`, 
 ('PPDB20250005', 4, 4, 2, 'Y', '2025-04-11 06:42:38', '2025-04-19 02:24:49'),
 ('PPDB20250006', 5, 5, 7, NULL, '2025-04-11 06:45:57', '2025-04-16 13:55:03'),
 ('PPDB20250007', 6, 6, 3, NULL, '2025-04-19 02:25:11', '2025-04-19 02:25:11'),
-('PPDB20250008', 7, 7, 4, NULL, '2025-04-19 06:52:40', '2025-04-19 06:52:40');
+('PPDB20250008', 7, 7, 4, NULL, '2025-04-19 06:52:40', '2025-04-19 06:52:40'),
+('PPDB20250009', 8, 8, 5, 'Y', '2025-04-24 06:26:50', '2025-04-24 06:30:08');
 
 -- --------------------------------------------------------
 
@@ -310,8 +313,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0BIt5AC3oTwsT2y40LQ6DXgZzem5TyDHh5pzCYAS', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiblZpWlFUSDE3ZE9BbjlBMjJhQkxJbVhSeHoyYmtFQ2hIYlNwazVMQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTU6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2FkbWluL3Blbmd1bXVtYW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1745183024),
-('yhOr82IdPY4EDWnvjsYnGv6khv2vFFWFCGlHZdKA', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVGgyUnRSZE1iQ1k5Szl3RTZOSXhHeXp4dTRWdTlpcDRNNXFWalhnTiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo0NzoiaHR0cDovL2xvY2FsaG9zdC9wcGRiLW11YmFya2V5YS9wdWJsaWMvZm9ybXVsaXIiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czo0NDoiaHR0cDovL2xvY2FsaG9zdC9wcGRiLW11YmFya2V5YS9wdWJsaWMvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1745180012);
+('3QHwx0dddugX5jKmOTNPQ4lpnXwChGuf9yVPyG7d', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ0xpTTdsVW9Zc3lPWXFDYVp6SWd4OFkwQ0p0bmxOV1hyeVYzdjlFOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1745574511),
+('AnLwhSRCXweZkqbjzrBKAxca9wQKZ0H5veNHsAGg', 8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaHkxOHRzTXhNQVBIUkRBU3BXN2dBcTBzUEdabGxiV2ZNMW1tWHpVcSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDg6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2luZm9ybWFzaSI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjg7fQ==', 1745502633),
+('Eqmj1m1KxymFW2gDuD7uePDXCv7AuiJZEVZ3L50k', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMVlraVBYbVNoYzRKeUpOb3M0eUhmQmgxbFo4VG9XSzIwU3hCYTduaSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo1NDoiaHR0cDovL2xvY2FsaG9zdC9wcGRiLW11YmFya2V5YS9wdWJsaWMvcGVuZ3VtdW1hbmx1bHVzIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDQ6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1745498863),
+('rtOvx1pnJNnV7dXi6IR5D1E44oLMpdgLfEdEZ028', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSGsxZ0lBcXRONTQycDJVdFRyU1BTWFVEa3Bvd0o4OXMzNlo4dW90QiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTc6Imh0dHA6Ly9sb2NhbGhvc3QvcHBkYi1tdWJhcmtleWEvcHVibGljL2FkbWluL2RhZnRhci11bGFuZyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1745501517);
 
 -- --------------------------------------------------------
 
@@ -367,12 +372,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `nisn`, `jk`, `tmp_lahir`, `tgl_lahir`, `photo`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'M. Fadhlan', 'mfadhlan1721@gmail.com', NULL, '$2y$12$/qOqkU2HhraxE/KzfITzO.uFxz/SvakbpsyfkTAu8aPaDzPDIrCBW', '0014', 'LAKI - LAKI', 'Aceh Besar', '2010-12-17', 'IkqOAd3NOH8SIB86wtNdR9AqfjK3TFY9DNwnTg8G97iD1r0Z6GalZMCv1rcBBDEzXYnezTqS6y3k2bvpSlU2ls6mRGVZV7DksIzH.png', NULL, '2025-04-01 05:31:41', '2025-04-16 15:21:24'),
-(2, 'adadaa', 'aaaa12@gmail.com', NULL, '$2y$12$prxct8A2O8eUevXKPlEo2OjiNKoSQProEB8hs/pgDyhUizcb7uNRm', '12122334', 'LAKI - LAKI', 'banda', '2002-12-16', 'vcZZmePOMoK5hdThDJ0w7Ij8TKwGJQa2MfirxWqg5HKODr5JQLzSGSI8ESqyXvZR5lgnkXsEAnGxNTBR970iWqmSZmIAEpgznm3k.jpeg', NULL, '2025-04-02 03:13:05', '2025-04-02 03:15:14'),
+(2, 'adadaa', 'antara01dan02@gmail.com', NULL, '$2y$12$prxct8A2O8eUevXKPlEo2OjiNKoSQProEB8hs/pgDyhUizcb7uNRm', '12122334', 'LAKI - LAKI', 'banda', '2002-12-16', 'vcZZmePOMoK5hdThDJ0w7Ij8TKwGJQa2MfirxWqg5HKODr5JQLzSGSI8ESqyXvZR5lgnkXsEAnGxNTBR970iWqmSZmIAEpgznm3k.jpeg', NULL, '2025-04-02 03:13:05', '2025-04-02 03:15:14'),
 (3, 'muslem', '200705039@student.ar-raniry.ac.id', NULL, '$2y$12$yIHSHoy8p1vUfEormTHAjudNT300rOWvg/41XRz7wv59Z5hych5Mq', '0970969596', 'LAKI - LAKI', 'Banda Aceh', '2002-05-14', 'tLjf33tqtgawAqPfgUN4yKGJiPBbBS1ZlgwBRrLvxpt9EOf5rp2nGYqXVGCari4eCUPyvcYsAYqqXaq1RmZmPmdDVuscowH65rzH.jpg', NULL, '2025-04-04 05:51:41', '2025-04-04 05:52:31'),
 (4, 'simax', 'fadhlanmuhammad1733@gmail.com', NULL, '$2y$12$dvkL67wz9zR9klbpevjis.wF.7dXkWTG9IFGoxbr0NWFeTqKulpiK', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-06', '1AwnotPcYwreucgmgcu110hqfdZzGvNPzIE1mjgYdr57LYSZYMGMAkjfngCzubiuSsObLwFotF2HUrrBY8kmNBE84xAhfk6KwhxG.png', NULL, '2025-04-06 01:40:08', '2025-04-06 01:40:58'),
 (5, 'max', '200705068@student.ar-raniry.ac.id', NULL, '$2y$12$soROHiwbjLWAwzeOx4iPV.9j1T.QXb9sh9GJE7T66p2vXxpxRwqcu', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-10', 'Ix0FODVTn3VAdaRTF7cH0uyQJ1jUVokXtEiYozhXzrk1LcCVCj8m6PRj90ppyY3qQuAVPVCivFjyOVz00wMrJa7tOSLgpxOIIrvs.png', NULL, '2025-04-11 06:30:03', '2025-04-11 06:30:45'),
 (6, 'Nur Annas', 'paerayaulee@gmail.com', NULL, '$2y$12$08/NGQlfPwBO1MXIEeyI0etyXx7ULk2D/PHKQ0ELAbGltFJmYeDCW', '001477884', 'LAKI - LAKI', 'Aceh Besar', '2025-04-01', 'bx6oDp8SwPX2PLeFxtssevixUT2bqmnLmrr2CPHGjgEYCsNgsSdNu1vxuNJeSlCF54fMrdCpEGwaHMKG7g3aiY18yTpaH3PRNJWG.png', NULL, '2025-04-19 01:58:16', '2025-04-19 01:59:04'),
-(7, 'Lucky Donnya', 'lucky@gmail.com', NULL, '$2y$12$qD8ZTv2CldwR72tfeb5nPu2nCE.I4tBuenCKHyEq46HL4jQMx/4j.', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-05', 'XtZmHzcNNIpSyCRs2xr0dYPYmj22W5delWjm1ablIDDySZ4AfEzligCIXhXtcddutRPuNNkZ2FuqtPVjR5vYDdJUjkCvv6fhWYSB.png', NULL, '2025-04-19 02:26:21', '2025-04-19 02:26:41');
+(7, 'Lucky Donnya', 'lucky@gmail.com', NULL, '$2y$12$qD8ZTv2CldwR72tfeb5nPu2nCE.I4tBuenCKHyEq46HL4jQMx/4j.', '0014', 'LAKI - LAKI', 'Aceh Besar', '2025-04-05', 'XtZmHzcNNIpSyCRs2xr0dYPYmj22W5delWjm1ablIDDySZ4AfEzligCIXhXtcddutRPuNNkZ2FuqtPVjR5vYDdJUjkCvv6fhWYSB.png', NULL, '2025-04-19 02:26:21', '2025-04-19 02:26:41'),
+(8, 'T. Muda Rahmat Sadiqi', 'teukumuda029@gmail.com', NULL, '$2y$12$APx9m7LCg/Z0Uw.S0f7RYurmxJ6G1Ci8bOujyJGQamwuJ/QxlM2Y.', '022222', 'LAKI - LAKI', 'Aceh Besar', '2001-08-13', 'JMYRe8ywHtnl5M70DkBZeUT2akgqDUmWPrKDWexlJx1Vbh00LnCB2se1PR2DWUcDE36Hdsv51VeUDEx0EokJg9uajrlo21yywi8g.jpeg', NULL, '2025-04-24 06:23:18', '2025-04-24 06:23:46');
 
 --
 -- Indexes for dumped tables
@@ -488,7 +494,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `biodata_users`
 --
 ALTER TABLE `biodata_users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -524,7 +530,7 @@ ALTER TABLE `timelines`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

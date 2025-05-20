@@ -12,7 +12,7 @@
 <a href="{{ url('admin/seleksi/3') }}" class="btn btn-primary font-weight-bolder">SELEKSI TIDAK LULUS PILIHAN</a>
 
 <div class="row mt-2">
-  <div class="col-md-8">
+  <div class="col-md-10">
     <div class="card shadow mb-4">
       <div class="card-header py-3">
           <h6 class="mt-2 font-weight-bold text-primary">Data</h6>
@@ -21,34 +21,42 @@
         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Nama</th>
-                  <th>Nomor Pendaftaran</th>
-                  <th>Pilihan 1</th>
-                  <th>Pilihan 2</th>
-                  <th>Nilai</th>
-                  <th>Menu</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Nama</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Nomor Pendaftaran</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Pilihan 1</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Pilihan 2</th>
+                  <th style="vertical-align: middle; text-align: center;" colspan="5">Nilai</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Menu</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Total</th>
+                </tr>
+                <tr>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Al-Quran</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Akademik</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Minat dan Bakat</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Kejuruan</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px; border: 1px solid #e6edf4;">Kesehatan</th>
                 </tr>
               </thead>
               <tfoot>
-                <tr>
+                {{-- <tr>
                   <th>Nama</th>
                   <th>Nomor Pendaftaran</th>
                   <th>Pilihan 1</th>
                   <th>Pilihan 2</th>
                   <th>Nilai</th>
                   <th>Menu</th>
-                </tr>
+                </tr> --}}
               </tfoot>
               <tbody></tbody>
         </table>
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     <div class="row">
 
       @foreach ($jurusans as $jurusan)
-      <div class="col-6 mb-4">
+      <div class="col-12 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -91,6 +99,11 @@
         {data:'no_pendaftaran',name:'no_pendaftaran'},
         {data:'jurusan1',name:'jurusan1'},
         {data:'jurusan2',name:'jurusan2'},
+        {data:'nalquran',name:'nalquran'},
+        {data:'nakademik',name:'nakademik'},
+        {data:'nmikat',name:'nmikat'},
+        {data:'nkejuruan',name:'nkejuruan'},
+        {data:'nkesehatan',name:'nkesehatan'},
         {data:'nilai',name:'nilai'},
         {data:'action',name:'action', orderable: false, searchable: false},
       ],

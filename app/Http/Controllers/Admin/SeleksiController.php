@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Daftarulang_user;
 use App\Models\Formulir_user;
 use App\Models\Jurusan;
 use App\Models\Lulus_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -36,11 +38,22 @@ class SeleksiController extends Controller
         $lulusTotal = Lulus_user::where('jurusans_id', $id_jurusan)->count();
 
         if ($pilihan == '1') {
-            $data = Formulir_user::with('user')->orderBy('nilai', 'desc')->where('jurusan'.$pilihan, $id_jurusan)->where('status_jurusan'.$pilihan, '=', null)->get();
+            $data = Formulir_user::with('user')
+            ->select('*', DB::raw('(nalquran + nakademik + nmikat + nkejuruan) as nilai'))
+            ->where('jurusan' . $pilihan, $id_jurusan)
+            ->whereNull('status_jurusan' . $pilihan)
+            ->orderByDesc('nilai')
+            ->get();
         }
 
         if ($pilihan == '2') {
-            $data = Formulir_user::with('user')->orderBy('nilai', 'desc')->where('jurusan'.$pilihan, $id_jurusan)->where('status_jurusan1', '=', 'T')->where('status_jurusan'.$pilihan, '=', null)->get();
+            $data = Formulir_user::with('user')
+                ->select('*', DB::raw('(nalquran + nakademik + nmikat + nkejuruan) as nilai'))
+                ->where('jurusan' . $pilihan, $id_jurusan)
+                ->where('status_jurusan1', 'T')
+                ->whereNull('status_jurusan' . $pilihan)
+                ->orderByDesc('nilai')
+                ->get();
         }
         
         if ($pilihan == '3') {
@@ -73,45 +86,32 @@ class SeleksiController extends Controller
             ], 422);
         }
 
+        $formulir = Formulir_user::find($id_formulir);
+        
         if ($pilihan < 3) {
-            $formulir = Formulir_user::find($id_formulir);
-            Lulus_user::create([
-                'id' => $formulir->id,
-                'users_id' => $formulir->users_id,
-                'biodata_users_id' => $formulir->biodata_users_id,
-                'jurusans_id' => $id_jur,
-            ]);
-    
             $formulir->update([
                 'status_jurusan'.$pilihan => 'L',
             ]);
-            $formulir->save();
         } else {
-
-            // $validator = Validator::make($request->all(), [
-            //     'jurusan' => 'required',
-            // ]);
-    
-            // //check if validation fails
-            // if ($validator->fails()) {
-            //     return response()->json($validator->errors(), 422);
-            // }
-
-            $formulir = Formulir_user::find($id_formulir);
-            Lulus_user::create([
-                'id' => $formulir->id,
-                'users_id' => $formulir->users_id,
-                'biodata_users_id' => $formulir->biodata_users_id,
-                'jurusans_id' => $id_jur,
-            ]);
-    
             $formulir->update([
                 'status_jurusan1' => 'A',
                 'status_jurusan2' => 'A',
             ]);
-            $formulir->save();
             
         }
+        $formulir->save();
+
+        Lulus_user::create([
+            'id' => $formulir->id,
+            'users_id' => $formulir->users_id,
+            'biodata_users_id' => $formulir->biodata_users_id,
+            'jurusans_id' => $id_jur,
+        ]);
+
+        Daftarulang_user::create([
+            'id' => $formulir->id,
+            'users_id' => $formulir->users_id,
+        ]);
         
         
 
@@ -148,7 +148,12 @@ class SeleksiController extends Controller
     }
 
     function datatableTidakLulus(Request $request) {
-        $data = Formulir_user::with('user')->orderBy('nilai', 'desc')->where('status_jurusan1', '=', 'T')->where('status_jurusan2', '=', 'T')->get();
+        $data = Formulir_user::with('user')
+                ->select('*', DB::raw('(nalquran + nakademik + nmikat + nkejuruan) as nilai'))
+                ->where('status_jurusan1', 'T')
+                ->where('status_jurusan2', 'T')
+                ->orderByDesc('nilai')
+                ->get();
         
         // return response()->json($data);
         if ($request->ajax()) {
@@ -158,6 +163,21 @@ class SeleksiController extends Controller
                 })
                 ->addColumn('no_pendaftaran', function ($data) {
                     return $data->id;
+                })
+                ->addColumn('nalquran', function ($data) {
+                    return $data->nalquran;
+                })
+                ->addColumn('nakademik', function ($data) {
+                    return $data->nakademik;
+                })
+                ->addColumn('nmikat', function ($data) {
+                    return $data->nmikat;
+                })
+                ->addColumn('nkejuruan', function ($data) {
+                    return $data->nkejuruan;
+                })
+                ->addColumn('nkesehatan', function ($data) {
+                    return $data->nkesehatan;
                 })
                 ->addColumn('nilai', function ($data) {
                     return $data->nilai;

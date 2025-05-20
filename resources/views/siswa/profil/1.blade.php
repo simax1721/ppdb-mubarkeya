@@ -171,7 +171,7 @@
 
       form.append('_token', token);
 
-      // console.log(form);
+      console.log(form);
       
       
       $.ajax({

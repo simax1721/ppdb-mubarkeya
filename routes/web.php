@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TimelineController as AdminTimelineController;
 use App\Http\Controllers\Auth\AdminController as AuthAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Siswa\DaftarulangController;
 use App\Http\Controllers\Siswa\DashboardController;
 use App\Http\Controllers\Siswa\FormulirController;
 use App\Http\Controllers\Siswa\PengumumanController;
@@ -53,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::auto('/profil', ProfilController::class);
     Route::auto('/formulir', FormulirController::class);
     Route::auto('/pengumumanlulus', PengumumanController::class);
+    Route::auto('/daftarulang', DaftarulangController::class);
 
 });
 

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lulus_user extends Model
+class Daftarulang_user extends Model
 {
     protected $guarded = [''];
     public $incrementing = false;
@@ -15,14 +15,5 @@ class Lulus_user extends Model
 
     function user() {
         return $this->belongsTo(User::class, 'users_id', 'id');
-    }
-
-    function jurusan() {
-        return $this->belongsTo(Jurusan::class, 'jurusans_id', 'id');
-    }
-
-    public function daftarUlang()
-    {
-        return $this->hasOne(Daftarulang_user::class, 'id', 'id');
     }
 }

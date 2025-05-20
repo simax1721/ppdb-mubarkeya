@@ -25,18 +25,25 @@ class NilaiController extends Controller
     }
 
     function update(Request $request, $id) {
-        $validator = Validator::make($request->all(), [
+        /* $validator = Validator::make($request->all(), [
             'nilai' => 'required',
-        ]);
+        ]); */
 
         //check if validation fails
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json($validator->errors(), 422);
+        // }
 
-        Formulir_user::find($id)->update([
-            'nilai' => $request->nilai,
-        ]);
+        
+        $data = [
+            'nalquran' => $request->nalquran,
+            'nakademik' => $request->nakademik,
+            'nmikat' => $request->nmikat,
+            'nkejuruan' => $request->nkejuruan,
+            'nkesehatan' => $request->nkesehatan,
+        ];
+        
+        Formulir_user::find($id)->update($data);
 
         //return response
         return response()->json([
@@ -44,7 +51,7 @@ class NilaiController extends Controller
             'icon' => 'success',
             'title' => 'Penilaian',
             'text' => 'Nilai Ditambahkan!',
-            'data'    => ''
+            'data'    => $data
         ]);
     }
 
@@ -64,8 +71,20 @@ class NilaiController extends Controller
                 ->addColumn('no_pendaftaran', function ($data) {
                     return $data->id;
                 })
-                ->addColumn('nilai', function ($data) {
-                    return $data->nilai;
+                ->addColumn('nalquran', function ($data) {
+                    return $data->nalquran;
+                })
+                ->addColumn('nakademik', function ($data) {
+                    return $data->nakademik;
+                })
+                ->addColumn('nmikat', function ($data) {
+                    return $data->nmikat;
+                })
+                ->addColumn('nkejuruan', function ($data) {
+                    return $data->nkejuruan;
+                })
+                ->addColumn('nkesehatan', function ($data) {
+                    return $data->nkesehatan;
                 })
                 ->addColumn('jurusan1', function ($data) {
                     return $data->pilihan1->name;

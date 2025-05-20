@@ -209,7 +209,7 @@
                 <div class="timeline-label">Pengumuman</div>
               </div>
               <div class="timeline-step">
-                <a href="#daftarulang" id="timeline-5" class="circle outline">5</a>
+                <a href="{{  url('/daftarulang') }}" id="timeline-5" class="circle outline">5</a>
                 <div class="timeline-label">Daftar Ulang</div>
               </div>
             </div>

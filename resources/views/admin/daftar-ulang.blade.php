@@ -7,9 +7,6 @@
 <h1 class="h3 mb-0 text-gray-800 mb-4">Daftar Ulang</h1>
 
 
-
-
-
 <div class="row mt-2">
 
   @foreach ($jurusans as $jurusan)
@@ -17,11 +14,12 @@
     <div class="card">
       <div class="card-header bg-dark text-white">
         <div class="row align-items-center">
-          <div class="col-10">
+          <div class="col-9">
             <h6 class="font-weight-bolder">{{ $jurusan->name }}</h6>
           </div>
-          <div class="col-2 text-right">
-            <h6 class="font-weight-bolder">Kuota <span id="t_j{{ $jurusan->id }}"></span> / {{ $jurusan->total }}</h6>
+          <div class="col-3 text-right">
+            <a href="{{ url('admin/daftar-ulang/download/' . date('Y') . '/' . $jurusan->name) }}" class="btn btn-info" id="downloadBerkas">Download Berkas</a>
+            {{-- <h6 class="font-weight-bolder">Kuota <span id="t_j{{ $jurusan->id }}"></span> / {{ $jurusan->total }}</h6> --}}
           </div>
         </div>
       </div>
@@ -61,32 +59,43 @@
 
           data.forEach(r => {
             var is_daftar_ulang = '';
+            var pasphoto = r.daftar_ulang.pasphoto == null ? '' : '✔';
+            var kartu_kip = r.daftar_ulang.kartu_kip == null ? '' : '✔';
+            var akte = r.daftar_ulang.akte == null ? '' : '✔';
+            var kk = r.daftar_ulang.kk == null ? '' : '✔';
+            var skl = r.daftar_ulang.skl == null ? '' : '✔';
+            var kartu_nisn = r.daftar_ulang.kartu_nisn == null ? '' : '✔';
             
             if (r.is_daftar_ulang != null) {
-              is_daftar_ulang = ``;
-
               isi = `${isi} 
               <tr class="text-success font-weight-bolder">
-                <td>${r.id}</td>
-                <td>${r.user.name}</td>
-                <td class="font-weight-bolder text-center"><div class="p-1"><i class="fas fa-check"></i></div></td>
+                <td>${r.id} <br> ${r.user.name}</td>
+                <td>${pasphoto}</td>
+                <td>${kartu_kip}</td>
+                <td>${akte}</td>
+                <td>${kk}</td>
+                <td>${skl}</td>
+                <td>${kartu_nisn}</td>
+                <td class="font-weight-bolder">✔</td> 
                 <td>
                   <button type="button" class="btn btn-danger btn-sm reject" data-id_formulir="${r.id}" data-pilihan="1" data-id_jur="${id_jur}"><i class="fas fa-times"></i></button>
-                  </td>
-              </tr>
-              `;
+                </td>
+              </tr>`;
             } else {
-                  is_daftar_ulang = ``;
                   isi = `${isi} 
                   <tr class="">
-                    <td>${r.id}</td>
-                    <td>${r.user.name}</td>
+                    <td>${r.id} <br> ${r.user.name}</td>
+                    <td>${pasphoto}</td>
+                    <td>${kartu_kip}</td>
+                    <td>${akte}</td>
+                    <td>${kk}</td>
+                    <td>${skl}</td>
+                    <td>${kartu_nisn}</td>
                     <td class="font-weight-bolder"></td> 
                     <td>
                       <button type="button" class="btn btn-success btn-sm approve" data-id_formulir="${r.id}" data-pilihan="1" data-id_jur="${id_jur}"><i class="fas fa-check"></i></button>
                     </td>
-                  </tr>
-            `;
+                  </tr>`;
             }
 
             
@@ -95,13 +104,25 @@
             $(`.id_jur${id_jur}`).html(`
               <p class="">Daftar Ulang : ${response.daftar_ulang} / ${response.lulusTotal}</p>
               <table class="table table-bordered table-striped">
-                <tr class="">
-                  <th>No Pendaftaran</th>
-                  <th>Nama</th>
-                  <th>Daftar Ulang</th>
-                  <th>Aksi</th>
-                </tr>
-                ${isi}
+                <thead>
+                  <tr class="">
+                    <th style="vertical-align: middle; text-align: center;" rowspan="2">No Pendaftaran</th>
+                    <th style="vertical-align: middle; text-align: center;" colspan="6">Berkas</th>
+                    <th style="vertical-align: middle; text-align: center;" rowspan="2">Status</th>
+                    <th style="vertical-align: middle; text-align: center;" rowspan="2">Aksi</th>
+                  </tr>
+                  <tr class="">
+                    <th style="vertical-align: middle; text-align: center;">Photo</th>
+                    <th style="vertical-align: middle; text-align: center;">Kartu<br>KIP</th>
+                    <th style="vertical-align: middle; text-align: center;">Akte<br>Kelahiran</th>
+                    <th style="vertical-align: middle; text-align: center;">KK</th>
+                    <th style="vertical-align: middle; text-align: center;">SKL</th>
+                    <th style="vertical-align: middle; text-align: center;">Kartu<br>NISN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${isi}
+                </tbody>
               </table>`);
         },
         error: function (error) { 

@@ -60,12 +60,17 @@
           var isi = "";
 
           data.forEach(r => {
-            var nilai = r.nilai == null ? '' : r.nilai;
+            var nkesehatan = r.nkesehatan == null ? '' : r.nkesehatan;
             isi = `${isi} 
-              <tr class="">
-                <td>${r.id}</td>
-                <td>${r.user.name}</td>
-                <td class="font-weight-bolder">${nilai}</td>
+            <tr class="">
+              <td>${r.id}</td>
+              <td>${r.user.name}</td>
+              <td class="font-weight-bolder">${r.nalquran}</td>
+              <td class="font-weight-bolder">${r.nakademik}</td>
+              <td class="font-weight-bolder">${r.nmikat}</td>
+              <td class="font-weight-bolder">${r.nkejuruan}</td>
+              <td class="font-weight-bolder">${nkesehatan}</td>
+              <td class="font-weight-bolder">${r.nilai}</td>
                 <td>
                   <button type="button" class="btn btn-success btn-sm approve" data-id_formulir="${r.id}" data-pilihan="${pilihan}" data-id_jur="${id_jur}"><i class="fas fa-check"></i></button>
                   <button type="button" class="btn btn-danger btn-sm reject" data-id_formulir="${r.id}" data-pilihan="${pilihan}" data-id_jur="${id_jur}"><i class="fas fa-times"></i></button>
@@ -76,13 +81,25 @@
 
             $(`.id_jur${id_jur}`).html(`
               <table class="table table-bordered table-striped">
-                <tr class="">
-                  <th>No Pendaftaran</th>
-                  <th>Nama</th>
-                  <th>Nilai</th>
-                  <th>Aksi</th>
-                </tr>
-                ${isi}
+                <thead>
+                  <tr class="">
+                    <th style="vertical-align: middle; text-align: center;"  rowspan="2">No Pendaftaran</th>
+                    <th style="vertical-align: middle; text-align: center;"  rowspan="2">Nama</th>
+                    <th style="vertical-align: middle; text-align: center;"  colspan="5">Nilai</th>
+                    <th style="vertical-align: middle; text-align: center;"  rowspan="2">Total</th>
+                    <th style="vertical-align: middle; text-align: center;"  rowspan="2">Aksi</th>
+                  </tr>
+                  <tr class="">
+                    <th style="vertical-align: middle; text-align: center;" >Al-Quran</th>
+                    <th style="vertical-align: middle; text-align: center;" >Akademik</th>
+                    <th style="vertical-align: middle; text-align: center;" >Minat Dan Bakat</th>
+                    <th style="vertical-align: middle; text-align: center;" >Kejuruan</th>
+                    <th style="vertical-align: middle; text-align: center;" >Kesehatan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${isi}
+                </tbody>
               </table>`);
         },
         error: function (error) { 

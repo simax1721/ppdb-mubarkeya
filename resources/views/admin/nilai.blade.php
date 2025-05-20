@@ -20,26 +20,31 @@
       </div>
       <div class="card-body">
         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+              <thead class="">
                 <tr>
-                  <th>Nama</th>
-                  <th>Nomor Pendaftaran</th>
-                  <th>Pilihan 1</th>
-                  <th>Pilihan 2</th>
-                  <th>Nilai</th>
-                  <th>Menu</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Nama</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Nomor Pendaftaran</th>
+                  <th style="vertical-align: middle; text-align: center;" colspan="5">Nilai</th>
+                  <th style="vertical-align: middle; text-align: center;" rowspan="2">Menu</th>
+                </tr>
+                <tr>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Al-Quran</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Akademik</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Minat dan Bakat</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px">Kejuruan</th>
+                  <th style="vertical-align: middle; text-align: center; width: 75px; border: 1px solid #e6edf4;">Kesehatan</th>
                 </tr>
               </thead>
-              <tfoot>
+              {{-- <tfoot>
                 <tr>
                   <th>Nama</th>
                   <th>Nomor Pendaftaran</th>
-                  <th>Pilihan 1</th>
+                  <th>al</th>
                   <th>Pilihan 2</th>
                   <th>Nilai</th>
                   <th>Menu</th>
                 </tr>
-              </tfoot>
+              </tfoot> --}}
               <tbody></tbody>
         </table>
       </div>
@@ -65,12 +70,15 @@
         columns: [
           {data:'nama',name:'nama'},
           {data:'no_pendaftaran',name:'no_pendaftaran'},
-          {data:'jurusan1',name:'jurusan1'},
-          {data:'jurusan2',name:'jurusan2'},
-          {data:'nilai',name:'nilai'},
+          {data:'nalquran',name:'nalquran'},
+          {data:'nakademik',name:'nakademik'},
+          {data:'nmikat',name:'nmikat'},
+          {data:'nkejuruan',name:'nkejuruan'},
+          {data:'nkesehatan',name:'nkesehatan'},
+          
           {data:'action',name:'action', orderable: false, searchable: false},
         ],
-        order: [[0, 'asc']]
+        order: [[1, 'desc']]
       });
     });
   </script>
@@ -88,9 +96,30 @@
             <h3 id="nomor" class="text-center"></h3>
           <input type="hidden" id="data_id">
             <div class="form-group">
-                <label for="nilai_edit" class="control-label">Nilai</label>
-                <input type="number" class="form-control" id="nilai_edit" name="nilai_edit" placeholder="">
+                <label for="nalquran_edit" class="control-label">Al-Quran</label>
+                <input type="number" class="form-control" id="nalquran_edit" name="nalquran_edit" placeholder="">
             </div>
+            <div class="form-group">
+                <label for="nakademik_edit" class="control-label">Akademik</label>
+                <input type="number" class="form-control" id="nakademik_edit" name="nakademik_edit" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="nmikat_edit" class="control-label">Minat dan Bakar</label>
+                <input type="number" class="form-control" id="nmikat_edit" name="nmikat_edit" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="nkejuruan_edit" class="control-label">Kejuruan</label>
+                <input type="number" class="form-control" id="nkejuruan_edit" name="nkejuruan_edit" placeholder="">
+            </div>
+            <label for="nkesehatan_label" class="control-label">Kesehatan</label>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="nkesehatan_edit" name="nkesehatan_edit" value="✔">
+              <label class="custom-control-label" for="nkesehatan_edit">✔</label>
+            </div>
+            {{-- <div class="form-group">
+                <label for="nkesehatan_edit" class="control-label">Kesehatan</label>
+                <input type="checkbox" value="✔" class="form-control" id="nkesehatan_edit" name="nkesehatan_edit" placeholder="">
+            </div> --}}
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-x"></i></button>
@@ -111,7 +140,12 @@
               // console.log(response.data);
               $('#nomor').html(`${response.data.id}<br>${response.data.user.name}`);
               $('#data_id').val(response.data.id);
-              $('#nilai_edit').val(response.data.nilai);
+              $('#nalquran_edit').val(response.data.nalquran);
+              $('#nakademik_edit').val(response.data.nakademik);
+              $('#nmikat_edit').val(response.data.nmikat);
+              $('#nkejuruan_edit').val(response.data.nkejuruan);
+              $('#nkesehatan_edit').prop('checked', response.data.nkesehatan != null);
+              // $('#nkesehatan_edit').val(response.data.nkesehatan);
             }
           });
           //open modal
@@ -121,15 +155,26 @@
       $('#update').click(function (e) { 
           e.preventDefault();
           let data_id = $('#data_id').val();
-          let nilai   = $('#nilai_edit').val();
+          let nalquran   = $('#nalquran_edit').val();
+          let nakademik   = $('#nakademik_edit').val();
+          let nmikat   = $('#nmikat_edit').val();
+          let nkejuruan   = $('#nkejuruan_edit').val();
+          let nkesehatan = $('#nkesehatan_edit').is(':checked') ? $('#nkesehatan_edit').val() : null;
           let token   = $("meta[name='csrf-token']").attr("content");
+
+          console.log(nalquran, nakademik, nmikat, nkejuruan, nkesehatan);
+          
     
           $.ajax({
               url: `{{ url('admin/nilai/update/${data_id}') }}`,
               type: "POST",
               cache: false,
               data: {
-                  'nilai': nilai,
+                  'nalquran': nalquran,
+                  'nakademik': nakademik,
+                  'nmikat': nmikat,
+                  'nkejuruan': nkejuruan,
+                  'nkesehatan': nkesehatan,
                   '_token': token,
               },
               success: function (response) {
@@ -141,12 +186,19 @@
                       timer: 3000
                   });
     
-                  //clear form
-                  $('#nilai_edit').val('');
+                  // clear form
+                  $('#nalquran_edit').val('');
+                  $('#nakademik_edit').val('');
+                  $('#nmikat_edit').val('');
+                  $('#nkejuruan_edit').val('');
+                  $('#nkesehatan_edit').prop('checked', false);
     
                   //close modal
                   $('#modal-edit').modal('hide');
                   $('#dataTable').DataTable().ajax.reload();
+
+                  console.log(response);
+                  
               },
               error: function (error) {
 								console.log(error);

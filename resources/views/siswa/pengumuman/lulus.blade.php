@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <td>Status</td>
-                        <td>: <strong>LULUS</strong></td>
+                        <td>: <strong style="color: #08ba08">LULUS</strong></td>
                     </tr>
                     <tr>
                         <td>Jurusan</td>

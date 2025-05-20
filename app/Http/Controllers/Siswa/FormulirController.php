@@ -45,17 +45,17 @@ class FormulirController extends Controller
             ]);
         } else {
 
-            $id_part1 = 'PPDB' . date('Y');
+            $id_part1 = 'SPMB' . date('Y');
             // $id_part1 = 'PPDB2026';
             $id_ceknomor = Formulir_user::where('id', 'LIKE', $id_part1 . "%")->orderBy('nomor', 'desc')->get();
             if (count($id_ceknomor) > 0) {
-                if ($id_ceknomor->first()->nomor < 10) {
+                if ($id_ceknomor->first()->nomor < 9) {
                     $id_part2 = '000' . ($id_ceknomor->first()->nomor + 1);
-                } elseif ($id_ceknomor->first()->nomor < 100) {
+                } elseif ($id_ceknomor->first()->nomor < 99) {
                     $id_part2 = '00' . ($id_ceknomor->first()->nomor + 1);
-                } elseif ($id_ceknomor->first()->nomor < 1000) {
+                } elseif ($id_ceknomor->first()->nomor < 999) {
                     $id_part2 = '0' . ($id_ceknomor->first()->nomor + 1);
-                } elseif ($id_ceknomor->first()->nomor < 1000) {
+                } else {
                     $id_part2 = ($id_ceknomor->first()->nomor + 1);
                 }
             } else {

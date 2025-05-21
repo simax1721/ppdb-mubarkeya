@@ -83,11 +83,11 @@
         <hr class="sidebar-divider mt-3">
         <div class="sidebar-heading">MENU</div>
         
-        <li class="nav-item ">
-            <a class="nav-link pb-2" href="{{ url('/admin/jurusan') }}">
+        {{-- <li class="nav-item ">
+            <a class="nav-link pb-2" href="{{ url('/admin/peserta') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Peserta</span></a>
-        </li>
+        </li> --}}
         
         <li class="nav-item ">
             <a class="nav-link pb-2" href="{{ url('/admin/nilai') }}">

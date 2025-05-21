@@ -25,8 +25,8 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6 col-sm-9 col-11 p-5" style="background-color: #f5f9fc; border-radius: 15px;">
-                <h2 class="font-weight-bolder text-center mb-2">Masuk</h2>
-                <p class="text-center mb-3 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, in?</p>
+                <h2 class="font-weight-bolder text-center mb-5">Masuk</h2>
+                
 
                 <form action="{{ route('login') }}" class="px-5" method="POST">
                     @csrf

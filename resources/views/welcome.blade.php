@@ -14,9 +14,9 @@
           <div class="carousel-item active" style="background-image: url('mamba/assets/img/mbky2.jpeg'); background-position: center bottom; background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">PPDB Online SMKN 1 Al-Mubarkeya</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <h2 class="animate__animated animate__fadeInDown">SPMB Online SMKN 1 Al-Mubarkeya</h2>
+                <p class="animate__animated animate__fadeInUp">SMK Negeri 1 Al-Mubarkeya Ingin Jaya merupakan Lembaga Pendidikan Menengah Kejuruan di Aceh Besar yang dibangun oleh Pemerintah Kuwait.</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya -></a>
               </div>
             </div>
           </div>
@@ -25,9 +25,9 @@
           <div class="carousel-item" style="background-image: url('mamba/assets/img/mbky1.jpeg'); background-position: center bottom; background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">PPDB Online SMKN 1 Al-Mubarkeya</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <h2 class="animate__animated animate__fadeInDown">SPMB Online SMKN 1 Al-Mubarkeya</h2>
+                <p class="animate__animated animate__fadeInUp">SMK Negeri 1 Al-Mubarkeya Ingin Jaya merupakan Lembaga Pendidikan Menengah Kejuruan di Aceh Besar yang dibangun oleh Pemerintah Kuwait.</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya -></a>
               </div>
             </div>
           </div>
@@ -36,9 +36,9 @@
           <div class="carousel-item" style="background-image: url('mamba/assets/img/mbky3.jpeg'); background-position: center center; background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">PPDB Online SMKN 1 Al-Mubarkeya</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <h2 class="animate__animated animate__fadeInDown">SPMB Online SMKN 1 Al-Mubarkeya</h2>
+                <p class="animate__animated animate__fadeInUp">SMK Negeri 1 Al-Mubarkeya Ingin Jaya merupakan Lembaga Pendidikan Menengah Kejuruan di Aceh Besar yang dibangun oleh Pemerintah Kuwait.</p>
+                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Selengkapnya -></a>
               </div>
             </div>
           </div>

@@ -23,8 +23,8 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-11 col-md-11 col-sm-11 col-11 p-5" style="background-color: #f5f9fc; border-radius: 15px;">
-                <h2 class="font-weight-bolder text-center mb-2">Pendaftar Akun</h2>
-                <p class="text-center mb-3 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, in?</p>
+                <h2 class="font-weight-bolder text-center mb-5">Pendaftar Akun</h2>
+                
 
                 <form action="{{ route('register') }}" class="px-5" method="POST">
                     @csrf

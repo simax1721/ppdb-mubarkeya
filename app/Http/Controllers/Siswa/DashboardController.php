@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $timeline1 = Biodata_user::where('users_id', Auth::user()->id)->count();
         $timeline2 = Formulir_user::where('users_id', Auth::user()->id)->count();
         
-        $timeline3 = "Formulir_user::where('users_id', Auth::user()->id)->where('nilai', '!=', null)->count()";
+        $timeline3 = Formulir_user::where('users_id', Auth::user()->id)->where('nalquran', '!=', null)->where('nakademik', '!=', null)->where('nmikat', '!=', null)->where('nkejuruan', '!=', null)->count();
 
         $timeline4 = Lulus_user::where('users_id', Auth::user()->id)->count();
         $timeline5 = Lulus_user::where('users_id', Auth::user()->id)->where('is_daftar_ulang', '!=', null)->count();

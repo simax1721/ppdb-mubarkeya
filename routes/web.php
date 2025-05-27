@@ -15,6 +15,7 @@ use App\Http\Controllers\Siswa\DashboardController;
 use App\Http\Controllers\Siswa\FormulirController;
 use App\Http\Controllers\Siswa\PengumumanController;
 use App\Http\Controllers\Siswa\ProfilController;
+use App\Http\Controllers\Siswa\UjianController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -55,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::auto('/formulir', FormulirController::class);
     Route::auto('/pengumumanlulus', PengumumanController::class);
     Route::auto('/daftarulang', DaftarulangController::class);
+    Route::auto('/ujian', UjianController::class);
 
 });
 

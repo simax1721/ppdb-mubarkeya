@@ -116,7 +116,7 @@
                     </div>
                   </div>
 
-                  <button id="save" class="btn btn-success">Simpan</button>
+                  <a href="#" id="save" class="btn btn-success disabled">Simpan</a>
 
                 </div>
               </div>

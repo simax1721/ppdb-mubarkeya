@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-                    <a href="#" id="save" class="btn btn-success mt-2">Simpan</a>
+                    <a href="#" id="save" class="btn btn-success mt-2 disabled">Simpan</a>
                 </div>
             </div>
 

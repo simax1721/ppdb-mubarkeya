@@ -49,7 +49,7 @@
                         </div> --}}
                       </div>
                       <img class="mt-3" id="imagePreview" style="width: 100%; border: 0.5px solid #777">
-                      <a href="#" id="save" class="btn btn-success mt-2">Simpan Perubahan</a>
+                      <a href="#" id="save" class="btn btn-success mt-2 disabled" >Simpan Perubahan</a>
                     </div>
                     <div class="col-10">
                       <div class="row">

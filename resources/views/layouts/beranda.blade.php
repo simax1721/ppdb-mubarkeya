@@ -308,28 +308,75 @@
 
   @auth
   <script>
+
+    var timeline1 = '';
+    var timeline2 = '';
+    var timeline3 = '';
+    var timeline4 = '';
+    var timeline5 = '';
+
     $(document).ready(function () {
+      var tgl_sekarang = new Date();
+      $currentUrl = window.location.href;
       $.ajax({
         type: "GET",
         url: `{{ url('dashboard-timeline') }}`,
         success: function (response) {
-          if (response.timeline1 == 1) {
+
+          if ($currentUrl == `{{ url('profil') }}` || $currentUrl == `{{ url('profil/biodata') }}`) {
+            var tgl_mulai = new Date(response.timelineWaktu[0].tgl_mulai);
+            var tgl_selesai = new Date(response.timelineWaktu[0].tgl_selesai);
+            if (tgl_sekarang >= tgl_mulai && tgl_sekarang <= tgl_selesai) {
+              $('#save').removeClass('disabled');
+            }
+          }
+
+          if ($currentUrl == `{{ url('formulir') }}`) {
+            var tgl_mulai = new Date(response.timelineWaktu[1].tgl_mulai);
+            var tgl_selesai = new Date(response.timelineWaktu[1].tgl_selesai);
+            if (tgl_sekarang >= tgl_mulai && tgl_sekarang <= tgl_selesai) {
+              $('#save').removeClass('disabled');
+            }
+          }
+          
+          if ($currentUrl == `{{ url('pengumumanlulus') }}`) {
+            var tgl_mulai = new Date(response.timelineWaktu[3].tgl_mulai);
+            var tgl_selesai = new Date(response.timelineWaktu[3].tgl_selesai);
+            if (tgl_sekarang >= tgl_mulai) {
+              $('#preview-formulir').removeClass('d-none');
+            }
+          }
+          
+          if ($currentUrl == `{{ url('daftarulang') }}`) {
+            var tgl_mulai = new Date(response.timelineWaktu[4].tgl_mulai);
+            var tgl_selesai = new Date(response.timelineWaktu[4].tgl_selesai);
+            if (tgl_sekarang >= tgl_mulai && tgl_sekarang <= tgl_selesai) {
+              $('#save').removeClass('disabled');
+            }
+          }
+
+          if (response.ceklulus == 0) {
+            $('#timeline-5').attr('href', '#');
+          }
+
+
+          if (response.timelineStatus.timeline1 == 1) {
             $('#timeline-1').removeClass('outline');
             $('#timeline-1').addClass('solid');
           }
-          if (response.timeline2 == 1) {
+          if (response.timelineStatus.timeline2 == 1) {
             $('#timeline-2').removeClass('outline');
             $('#timeline-2').addClass('solid');
           }
-          if (response.timeline3 == 1) {
+          if (response.timelineStatus.timeline3 == 1) {
             $('#timeline-3').removeClass('outline');
             $('#timeline-3').addClass('solid');
           }
-          if (response.timeline4 == 1) {
+          if (response.timelineStatus.timeline4 == 1) {
             $('#timeline-4').removeClass('outline');
             $('#timeline-4').addClass('solid');
           }
-          if (response.timeline5 == 1) {
+          if (response.timelineStatus.timeline5 == 1) {
             $('#timeline-5').removeClass('outline');
             $('#timeline-5').addClass('solid');
           }

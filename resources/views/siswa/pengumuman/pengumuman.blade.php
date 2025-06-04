@@ -31,7 +31,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12" id="preview-formulir">
+                        <div class="col-md-12 d-none" id="preview-formulir">
                             
                         </div>
                       </div>

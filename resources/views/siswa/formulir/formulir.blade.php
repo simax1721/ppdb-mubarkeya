@@ -52,7 +52,7 @@
                             </div>
                             <input type="hidden" name="biodata_users_id" id="biodata_users_id">
                             <input type="hidden" name="users_id" id="users_id">
-                            <button type="button" id="save" class="btn btn-success">Simpan</button>
+                            <a href="#" id="save" class="btn btn-success disabled">Simpan</a>
                         </div>
                         <div class="col-md-7" id="preview-formulir">
                             

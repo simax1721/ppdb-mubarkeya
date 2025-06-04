@@ -91,6 +91,15 @@
                                 <input type="file" name="kartu_nisn" class="form-control form-control-lg" id="kartu_nisn">
                                 <input type="hidden" name="kartu_nisnOld" id="kartu_nisnOld">
                             </div>
+                            <div class="form-group mt-4">
+                                <label class="font-weight-bolder" for="nilairapot">
+                                    Nilai Rapot 
+                                    <span class="text-danger"><sup><strong>*</strong></sup></span>
+                                    <a href="#" id="nilairapotLink" target="_blank" class="btn btn-link d-none">Download</a>
+                                </label>
+                                <input type="file" name="nilairapot" class="form-control form-control-lg" id="nilairapot">
+                                <input type="hidden" name="nilairapotOld" id="kartu_nisnOld">
+                            </div>
                         </div>
                     </div>
 
@@ -133,6 +142,10 @@
                     $('#kartu_nisnOld').val(response.data.kartu_nisn == null ? '' : response.data.kartu_nisn);
                     $('#kartu_nisnLink').attr('href', `{{ url('') }}${response.data.kartu_nisn}`);
                     response.data.kartu_nisn != null ? $('#kartu_nisnLink').removeClass('d-none') : '';
+                    
+                    $('#nilairapotOld').val(response.data.nilairapot == null ? '' : response.data.nilairapot);
+                    $('#nilairapotLink').attr('href', `{{ url('') }}${response.data.nilairapot}`);
+                    response.data.nilairapot != null ? $('#nilairapotLink').removeClass('d-none') : '';
 
                 }
             });
@@ -147,6 +160,7 @@
             let kk = $('#kk')[0].files?.[0] == undefined ? '' : $('#kk')[0].files[0];
             let skl = $('#skl')[0].files?.[0] == undefined ? '' : $('#skl')[0].files[0];
             let kartu_nisn = $('#kartu_nisn')[0].files?.[0] == undefined ? '' : $('#kartu_nisn')[0].files[0];
+            let nilairapot = $('#nilairapot')[0].files?.[0] == undefined ? '' : $('#nilairapot')[0].files[0];
 
             let token   = $("meta[name='csrf-token']").attr("content");
 
@@ -158,6 +172,7 @@
             form.append('kk', kk);
             form.append('skl', skl);
             form.append('kartu_nisn', kartu_nisn);
+            form.append('nilai-rapot', nilai-rapot);
             form.append('_token', token);
 
             $.ajax({
@@ -201,6 +216,9 @@
                     }
                     if (error.responseJSON.kartu_nisn?.[0]) { 
                         toastr.error(error.responseJSON.kartu_nisn[0]);
+                    }
+                    if (error.responseJSON.nilairapot?.[0]) { 
+                        toastr.error(error.responseJSON.nilairapot[0]);
                     }
 
                     console.log(error);

@@ -84,7 +84,7 @@
             <td class="content">
                 <p>Yth. <strong>{{ $siswa->user->name }}</strong>,</p>
 
-                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>lulus</strong> dalam seleksi Seleksi Penerimaan Murid Baru (SPMB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
+                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>tidak lulus</strong> dalam Seleksi Penerimaan Murid Baru Baru (SPMB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
 
                 <table class="info-table">
                     <tr>
@@ -97,15 +97,15 @@
                     </tr>
                     <tr>
                         <td>Status</td>
-                        <td>: <strong>LULUS</strong></td>
+                        <td>: <strong>TIDAK LULUS</strong></td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td>Jurusan</td>
                         <td>: {{ $siswa->jurusan->name }}</td>
-                    </tr>
+                    </tr> --}}
                 </table>
 
-                <p>Untuk informasi selanjutnya, silakan akses tautan di bawah ini atau hubungi panitia SPMB jika diperlukan:</p>
+                {{-- <p>Untuk informasi selanjutnya, silakan akses tautan di bawah ini atau hubungi panitia SPMB jika diperlukan:</p> --}}
 
                 <a href="{{ url('pengumuman/lulus') }}" class="button">Lihat Detail Pengumuman</a>
             </td>

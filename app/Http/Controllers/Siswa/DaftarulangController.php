@@ -25,6 +25,7 @@ class DaftarulangController extends Controller
             'kk' => $request->kk == null ? '' :'mimes:pdf|max:1024',
             'skl' => $request->skl == null ? '' :'mimes:pdf|max:1024',
             'kartu_nisn' => $request->kartu_nisn == null ? '' :'mimes:pdf|max:1024',
+            'nilairapot' => $request->nilairapot == null ? '' :'mimes:pdf|max:1024',
         ]);
 
         //check if validation fails
@@ -104,6 +105,17 @@ class DaftarulangController extends Controller
             $link = '/' . date('Y') . '/'. $lulus_user->jurusan->name . '/' .Auth::user()->name .'/' . $kartu_nisn_upload;
             $daftarulang_user->update([
                 'kartu_nisn' => $link
+            ]);
+            
+        }
+        
+        if ($request->nilairapot != null) {
+            $nilairapot_upload = 'nilairapot.' . $request->nilairapot->getClientOriginalExtension();
+            $request->nilairapot->move(public_path() . '/' . date('Y') . '/'. $lulus_user->jurusan->name . '/' .Auth::user()->name .'/', $nilairapot_upload);
+            
+            $link = '/' . date('Y') . '/'. $lulus_user->jurusan->name . '/' .Auth::user()->name .'/' . $nilairapot_upload;
+            $daftarulang_user->update([
+                'nilairapot' => $link
             ]);
             
         }

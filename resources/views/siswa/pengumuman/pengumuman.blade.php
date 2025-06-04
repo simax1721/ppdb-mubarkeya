@@ -79,7 +79,13 @@
                                 timer: 3000
                             });
                         } else {
-                            $('#preview-formulir').html(`<iframe src="{{ url('/lulus') }}/${response.data.id}" frameborder="0" style="width: 100%; height: 60vh; border: none; overflow: hidden;" scrolling="no"></iframe>`)
+                            var status = `{{ $cekstatus }}`;
+                            if (status == 'lulus') {
+                                $('#preview-formulir').html(`<iframe src="{{ url('/lulus') }}/${response.data.id}" frameborder="0" style="width: 100%; height: 60vh; border: none; overflow: hidden;" scrolling="no"></iframe>`)
+                            } else {
+                                $('#preview-formulir').html(`<iframe src="{{ url('/tidaklulus') }}/${response.data.id}" frameborder="0" style="width: 100%; height: 60vh; border: none; overflow: hidden;" scrolling="no"></iframe>`)
+                            }
+
                         }
                         
                         // response.data == null ? '' : ;

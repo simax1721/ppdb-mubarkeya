@@ -61,14 +61,14 @@
     <table>
         <tr>
             <td class="header">
-                <h2>Pengumuman Hasil Seleksi PPDB</h2>
+                <h2>Pengumuman Hasil Seleksi SPMB</h2>
             </td>
         </tr>
         <tr>
             <td class="content">
                 <p>Yth. <strong>{{ $siswa->user->name }}</strong>,</p>
 
-                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>lulus</strong> dalam seleksi Penerimaan Peserta Didik Baru (PPDB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
+                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>lulus</strong> dalam seleksi Seleksi Penerimaan Murid Baru Baru (SPMB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
 
                 <table class="info-table">
                     <tr>

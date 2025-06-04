@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumuman Kelulusan</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
         }
 
         table {
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             margin: 20px auto;
             background-color: #ffffff;
             border-radius: 10px;
@@ -35,28 +41,6 @@
             color: #333333;
         }
 
-        .footer {
-            background-color: #f1f1f1;
-            padding: 15px;
-            text-align: center;
-            font-size: 12px;
-            color: #777777;
-        }
-
-        .button {
-            background-color: #2c3e50;
-            color: #ffffff !important;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .button:hover {
-            background-color: #1a242f;
-        }
-
         .info-table {
             margin-top: 15px;
             border-collapse: collapse;
@@ -64,7 +48,7 @@
         }
 
         .info-table td {
-            padding: 8px 0;
+            padding: 8px 8px;
         }
 
         .info-table td:first-child {
@@ -84,7 +68,7 @@
             <td class="content">
                 <p>Yth. <strong>{{ $siswa->user->name }}</strong>,</p>
 
-                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>lulus</strong> dalam seleksi Seleksi Penerimaan Murid Baru (SPMB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
+                <p>Bersama email ini, kami informasikan bahwa Anda dinyatakan <strong>tidak lulus</strong> dalam Seleksi Penerimaan Murid Baru Baru (SPMB) Tahun Ajaran {{ date('Y') }}/{{ date('Y')+1 }}.</p>
 
                 <table class="info-table">
                     <tr>
@@ -97,26 +81,23 @@
                     </tr>
                     <tr>
                         <td>Status</td>
-                        <td>: <strong>LULUS</strong></td>
+                        <td>: <strong style="color: #ec0a0a">TIDAK LULUS</strong></td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td>Jurusan</td>
                         <td>: {{ $siswa->jurusan->name }}</td>
-                    </tr>
+                    </tr> --}}
                 </table>
-
-                <p>Untuk informasi selanjutnya, silakan akses tautan di bawah ini atau hubungi panitia SPMB jika diperlukan:</p>
-
-                <a href="{{ url('pengumuman/lulus') }}" class="button">Lihat Detail Pengumuman</a>
-            </td>
-        </tr>
-        <tr>
-            <td class="footer">
-                <p>Email ini dikirim karena Anda telah mengikuti proses SPMB di SMKN 1 Al-Mubarkeya.</p>
-                <p>Jika Anda memiliki pertanyaan, silakan hubungi kami melalui <a href="mailto:smk.mubarkeya@gmail.com">smk.mubarkeya@gmail.com</a> atau telepon 0651-8071002.</p>
-                <p>&copy; {{ date('Y') }} SMKN 1 Al-Mubarkeya | Kayee Lee, Kec. Ingin Jaya, Kabupaten Aceh Besar, Aceh 23230</p>
             </td>
         </tr>
     </table>
+
+    <script>
+        window.onload = function () {
+            window.parent.postMessage({
+                height: document.body.scrollHeight
+            }, "*");
+        };
+    </script>
 </body>
 </html>

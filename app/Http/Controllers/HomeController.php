@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formulir_user;
 use App\Models\Lulus_user;
 use Illuminate\Http\Request;
 
@@ -23,5 +24,11 @@ class HomeController extends Controller
 
         $siswa = Lulus_user::findOrFail($formulir_id);
         return view('siswa.pengumuman.lulus', compact('siswa'));
+    }
+    
+    function get_tidaklulus($formulir_id) {
+
+        $siswa = Formulir_user::findOrFail($formulir_id);
+        return view('siswa.pengumuman.tidaklulus', compact('siswa'));
     }
 }

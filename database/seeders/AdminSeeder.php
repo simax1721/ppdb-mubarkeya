@@ -20,11 +20,17 @@ class AdminSeeder extends Seeder
         //     'password' => Hash::make('12345678'),
         //     'is_super' => '1',
         // ]);
+        // Admin::create([
+        //     'name' => 'Super Admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        //     'is_super' => '1',
+        // ]);
         Admin::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'kepala Sekolah',
+            'email' => 'kepala.smk.mubarkeya@gmail.com',
             'password' => Hash::make('12345678'),
-            'is_super' => '1',
+            // 'is_super' => '',
         ]);
     }
 }

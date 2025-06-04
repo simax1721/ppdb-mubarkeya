@@ -65,6 +65,7 @@
             var kk = r.daftar_ulang.kk == null ? '' : '✔';
             var skl = r.daftar_ulang.skl == null ? '' : '✔';
             var kartu_nisn = r.daftar_ulang.kartu_nisn == null ? '' : '✔';
+            var nilairapot = r.daftar_ulang.nilairapot == null ? '' : '✔';
             
             if (r.is_daftar_ulang != null) {
               isi = `${isi} 
@@ -76,6 +77,7 @@
                 <td>${kk}</td>
                 <td>${skl}</td>
                 <td>${kartu_nisn}</td>
+                <td>${nilairapot}</td>
                 <td class="font-weight-bolder">✔</td> 
                 <td>
                   <button type="button" class="btn btn-danger btn-sm reject" data-id_formulir="${r.id}" data-pilihan="1" data-id_jur="${id_jur}"><i class="fas fa-times"></i></button>
@@ -91,6 +93,7 @@
                     <td>${kk}</td>
                     <td>${skl}</td>
                     <td>${kartu_nisn}</td>
+                    <td>${nilairapot}</td>
                     <td class="font-weight-bolder"></td> 
                     <td>
                       <button type="button" class="btn btn-success btn-sm approve" data-id_formulir="${r.id}" data-pilihan="1" data-id_jur="${id_jur}"><i class="fas fa-check"></i></button>
@@ -107,7 +110,7 @@
                 <thead>
                   <tr class="">
                     <th style="vertical-align: middle; text-align: center;" rowspan="2">No Pendaftaran</th>
-                    <th style="vertical-align: middle; text-align: center;" colspan="6">Berkas</th>
+                    <th style="vertical-align: middle; text-align: center;" colspan="7">Berkas</th>
                     <th style="vertical-align: middle; text-align: center;" rowspan="2">Status</th>
                     <th style="vertical-align: middle; text-align: center;" rowspan="2">Aksi</th>
                   </tr>
@@ -118,6 +121,7 @@
                     <th style="vertical-align: middle; text-align: center;">KK</th>
                     <th style="vertical-align: middle; text-align: center;">SKL</th>
                     <th style="vertical-align: middle; text-align: center;">Kartu<br>NISN</th>
+                    <th style="vertical-align: middle; text-align: center;">Nilai<br>Rapot</th>
                   </tr>
                 </thead>
                 <tbody>
